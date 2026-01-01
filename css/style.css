@@ -1,0 +1,407 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  display: inline-block;
+  width: 150px;
+  background-color: #3498db;
+  position: relative;
+}
+.judul {
+  display: flex;
+  justify-content: center;
+}
+
+#map {
+  height: 100vh;
+  width: 100%;
+}
+
+h1 {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-size: 1.4rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+}
+.leaflet-popup-content {
+  margin: 15px;
+  line-height: 1.5;
+}
+/* Legenda */
+.info-legend {
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  position: absolute;
+  bottom: 30px;
+  left: 10px;
+  z-index: 1000;
+  min-width: 150px;
+  padding: 15px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.circle-color {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+/* --- UPDATE CSS WIDGET CUACA --- */
+.weather-widget {
+  background: white;
+  border: 2px solid #3498db;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
+  min-width: 130px;
+  position: relative;
+}
+/* Segitiga kecil di bawah widget */
+.weather-widget::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px 8px 0;
+  border-style: solid;
+  border-color: inherit transparent transparent transparent;
+}
+.weather-value {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 4px 0;
+}
+.weather-label {
+  font-size: 10px;
+  color: #7f8c8d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+path.leaflet-interactive:focus {
+  outline: none;
+}
+
+/* Keyframes untuk efek berdenyut */
+@keyframes pulse-animation {
+  0% {
+    stroke-width: 2px;
+    fill-opacity: 0.8;
+    stroke-opacity: 1;
+  }
+  50% {
+    stroke-width: 15px; /* Garis menebal */
+    fill-opacity: 0.5;
+    stroke-opacity: 0.5; /* Garis memudar */
+  }
+  100% {
+    stroke-width: 2px;
+    fill-opacity: 0.8;
+    stroke-opacity: 1;
+  }
+}
+
+/* Class ini akan dipanggil di Javascript */
+.animasi-alert {
+  transform-origin: center; /* Pastikan animasi dari tengah */
+  animation: pulse-animation 2s infinite; /* Berulang selamanya setiap 2 detik */
+}
+
+/* =========================================
+   SIDEBAR PENCARIAN
+   ========================================= */
+.sidebar-container {
+  position: absolute;
+  top: 90px; /* Jarak dari atas (di bawah judul) */
+  left: 20px;
+  width: 280px;
+  z-index: 2000; /* Di atas peta (z-index map biasanya 400) */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Kotak Input Pencarian */
+.search-box {
+  display: flex;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 5px;
+}
+
+.search-box input {
+  border: none;
+  padding: 10px;
+  width: 100%;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-box button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.search-box button:hover {
+  background: #2980b9;
+}
+
+/* Panel Hasil Pencarian */
+.result-box {
+  background: rgba(255, 255, 255, 0.98);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+  max-height: 65vh; /* Tinggi maksimal 65% dari layar laptop */
+  overflow-y: auto; /* Munculkan scroll jika konten melebihi batas */
+  overflow-x: hidden; /* Sembunyikan scroll samping */
+
+  /* Agar scrollbar terlihat modern di Chrome/Safari */
+  scrollbar-width: thin;
+  scrollbar-color: #3498db #f0f0f0;
+}
+
+.result-box h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #2c3e50;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+
+.result-item {
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.result-item .label {
+  font-weight: bold;
+  color: #7f8c8d;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.value-coords {
+  font-family: monospace;
+  background: #f0f0f0;
+  padding: 5px;
+  border-radius: 4px;
+  color: #333;
+}
+
+.badge {
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.btn-reset {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* --- Style Tambahan untuk Gambar Sidebar --- */
+.result-image-box {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+}
+
+.result-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Style untuk Cuaca Sidebar --- */
+.weather-widget-sidebar {
+  background: #e1f5fe;
+  border: 1px solid #81d4fa;
+  color: #0277bd;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================= */
+
+/* Untuk Tablet dan Layar Mobile (Lebar di bawah 768px) */
+@media screen and (max-width: 768px) {
+  /* 1. Penyesuaian Judul Melayang */
+  h1 {
+    width: 85%; /* Supaya tidak terlalu lebar sampai pinggir layar */
+    font-size: 0.9rem; /* Perkecil ukuran font */
+    padding: 8px 15px; /* Kurangi padding */
+    top: 15px; /* Jarak dari atas */
+    flex-direction: column; /* Logo di atas, teks di bawah (opsional, agar rapi) */
+    gap: 5px; /* Jarak antara logo dan teks */
+  }
+
+  /* Perkecil ukuran logo di dalam judul */
+  .logo img {
+    width: 40px !important; /* Paksa ukuran logo lebih kecil */
+    height: auto;
+  }
+
+  /* 2. Penyesuaian Legenda */
+  .info-legend {
+    font-size: 10px; /* Perkecil font legenda */
+    padding: 10px; /* Kurangi padding */
+    bottom: 25px; /* Sesuaikan jarak bawah */
+    left: 10px;
+    min-width: 120px; /* Perkecil lebar minimal */
+    max-width: 150px;
+  }
+
+  .legend-item {
+    margin-bottom: 5px; /* Rapatkan jarak antar item */
+  }
+
+  .circle-color {
+    width: 12px; /* Perkecil simbol bulat */
+    height: 12px;
+    margin-right: 5px;
+  }
+
+  /* 3. Penyesuaian Widget Cuaca (di dalam Popup) */
+  .weather-widget {
+    min-width: 100px;
+    padding: 8px;
+  }
+
+  .weather-value {
+    font-size: 16px;
+  }
+
+  /* 4. Penyesuaian Popup Leaflet agar muat di layar HP */
+  .leaflet-popup-content {
+    margin: 10px 5px; /* Kurangi margin */
+    min-width: 200px !important; /* Lebar minimal popup */
+    max-width: 250px !important; /* Jangan terlalu lebar */
+  }
+  .info-legend {
+    position: sticky;
+    top: 20px;
+    width: 15px;
+  }
+
+  .leaflet-popup-content h3 {
+    font-size: 14px !important; /* Perkecil judul kecamatan di popup */
+  }
+
+  .leaflet-popup-content img {
+    height: 100px !important; /* Perkecil tinggi gambar di popup */
+  }
+  .leaflet-touch .leaflet-control-layers,
+  .leaflet-control-layers {
+    position: fixed !important; /* Paksa keluar dari posisi default */
+    top: auto !important; /* Matikan posisi atas */
+    bottom: 30px !important; /* Tempel di bawah (sesuaikan tinggi footer jika ada) */
+    right: 20px !important; /* Tempel di kanan */
+    left: auto !important;
+    margin: 0 !important;
+    z-index: 2000 !important; /* Pastikan di atas peta */
+  }
+
+  /* Tampilan saat Layer Dibuka (Expanded) */
+  .leaflet-control-layers-expanded {
+    max-width: 210px;
+    bottom: 30px !important; /* Kunci posisi bawah */
+    top: auto !important; /* Biarkan tumbuh ke atas */
+
+    /* Opsional: Agar tidak terlalu panjang menutupi layar */
+    max-height: 50vh;
+    overflow-y: auto;
+
+    /* Kosmetik tambahan agar terlihat seperti Card melayang */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* Untuk Layar Sangat Kecil (Lebar di bawah 480px - HP Kecil) */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 0.8rem; /* Font lebih kecil lagi */
+    width: 90%;
+  }
+
+  .info-legend {
+    bottom: 20px;
+    left: 5px; /* Lebih mepet kiri */
+  }
+  .sidebar-container {
+    width: 90%; /* Lebar penuh di HP */
+    left: 5%;
+    top: 90px;
+  }
+  .result-box {
+    max-height: 50vh; /* Tinggi maksimal konten HANYA 50% layar HP */
+    /* Sisanya biarkan untuk peta terlihat di bawahnya */
+  }
+
+  /* Perkecil Gambar di Mobile agar hemat tempat */
+  .result-image-box {
+    height: 100px;
+  }
+}

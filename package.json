@@ -1,0 +1,20 @@
+{
+  "name": "sitarub-project",
+  "version": "1.0.0",
+  "description": "Sistem Tata Ruang & Rawan Banjir Cisolok",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -o -c-1"
+  },
+  "keywords": [
+    "gis",
+    "leaflet",
+    "banjir",
+    "sitarub"
+  ],
+  "author": "Kelompok Kamu",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
