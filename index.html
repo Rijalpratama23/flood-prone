@@ -14,30 +14,25 @@
   <body>
     <div>
       <div class="sidebar-container">
-        <div class="pembungkus">
-          
-        </div>
+        <div class="pembungkus"></div>
         <div class="search-box">
           <input type="text" id="search-input" placeholder="Cari Kecamatan..." />
           <button onclick="searchLocation()">🔍</button>
         </div>
 
         <div id="search-result" class="result-box" style="display: none">
-          
           <div class="result-image-box">
-             <img id="res-img" src="" alt="Lokasi" onerror="this.src='https://via.placeholder.com/300x150?text=No+Image'">
+            <img id="res-img" src="" alt="Lokasi" onerror="this.src='https://via.placeholder.com/300x150?text=No+Image'" />
           </div>
 
           <h3>Hasil Pencarian</h3>
-          
+
           <div class="result-item">
             <span class="label">Lokasi:</span>
             <span id="res-nama" class="value">-</span>
           </div>
 
-          <div id="res-weather" class="weather-widget-sidebar">
-             ⏳ Memuat data cuaca...
-          </div>
+          <div id="res-weather" class="weather-widget-sidebar">⏳ Memuat data cuaca...</div>
 
           <div class="result-item">
             <span class="label">Koordinat:</span>
@@ -54,37 +49,33 @@
             <span class="label">Info:</span>
             <p id="res-desc" class="value-text">-</p>
           </div>
-          
+
           <button onclick="resetSearch()" class="btn-reset">Reset / Tutup</button>
 
-          <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
+          <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc" />
 
           <div class="ai-section">
-            <h4 style="margin: 0 0 10px 0; color: #8e44ad;">🤖 AI Disaster Advisor</h4>
-            <p style="font-size: 11px; color: #666; margin-bottom: 10px;">
-                Minta saran keselamatan berdasarkan lokasi & cuaca saat ini.
-            </p>
-            
-            <button id="btn-ask-ai" onclick="askGeminiAI()" class="btn-ai">
-                ✨ Analisis Risiko Sekarang
-            </button>
+            <h4 style="margin: 0 0 10px 0; color: #8e44ad">🤖 AI Disaster Advisor</h4>
+            <p style="font-size: 11px; color: #666; margin-bottom: 10px">Minta saran keselamatan berdasarkan lokasi & cuaca saat ini.</p>
 
-            <div id="ai-response" class="ai-response-box" style="display: none;">
-                <div id="ai-loading" style="display: none;">
-                    ⏳ Sedang menganalisis situasi...
-                </div>
-                <div id="ai-text" class="ai-text-content"></div>
+            <button id="btn-ask-ai" onclick="askGeminiAI()" class="btn-ai">✨ Analisis Risiko Sekarang</button>
+
+            <div id="ai-response" class="ai-response-box" style="display: none">
+              <div id="ai-loading" style="display: none">⏳ Sedang menganalisis situasi...</div>
+              <div id="ai-text" class="ai-text-content"></div>
             </div>
           </div>
-          </div>
+        </div>
       </div>
 
       <h1 class="judul">
         <div class="logo">
           <img src="assets/kabupatenSukabumi-removebg-preview.png" alt="logo" width="150px" />
         </div>
-        Pemetaan Rawan Banjir <br />
-        Kabupaten Sukabumi
+        <div>
+          Pemetaan Rawan Banjir <br />
+          Kabupaten Sukabumi
+        </div>
       </h1>
     </div>
     <div id="map"></div>
