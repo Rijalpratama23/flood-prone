@@ -396,112 +396,109 @@ function resetSearch() {
   currentSearchData = null;
 }
 
+document.getElementById('search-input').addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') searchLocation();
+});
+
 // ============================================================
-// 9. LOGIKA AI ADVISOR (GOOGLE GEMINI) - FINAL FIX
+// 11. FITUR CHATBOT AI (FLOATING WIDGET)
 // ============================================================
 
-async function askGeminiAI() {
-  if (!currentSearchData) {
-    alert('Silakan cari lokasi kecamatan terlebih dahulu!');
-    return;
+// Fungsi Buka/Tutup Chat
+function toggleChat() {
+  const box = document.getElementById('chatbot-box');
+  // Cek display, jika none ubah jadi flex, jika flex ubah jadi none
+  if (box.style.display === 'none' || box.style.display === '') {
+    box.style.display = 'flex';
+    // Fokuskan kursor ke input saat dibuka
+    setTimeout(() => document.getElementById('chat-input').focus(), 100);
+  } else {
+    box.style.display = 'none';
   }
+}
 
-  const apiKey = 'AIzaSyAWcmpMCpb4kjicPtz9J8VjpcUH6fOYxs0'; // API KEY ANDA
+// Fungsi Enter Key
+function handleChatEnter(e) {
+  if (e.key === 'Enter') sendChatMessage();
+}
 
-  // Elemen UI
-  const responseBox = document.getElementById('ai-response');
-  const loadingText = document.getElementById('ai-loading');
-  const contentText = document.getElementById('ai-text');
-  const btnAi = document.getElementById('btn-ask-ai');
+// Fungsi Utama Kirim Pesan ke AI
+async function sendChatMessage() {
+  const inputField = document.getElementById('chat-input');
+  const messageArea = document.getElementById('chat-messages');
+  const userText = inputField.value.trim();
 
-  // Tampilkan Loading
-  responseBox.style.display = 'block';
-  loadingText.style.display = 'block';
-  contentText.innerHTML = '';
-  btnAi.disabled = true;
-  btnAi.innerText = 'Sedang berpikir...';
+  // API Key Anda
+  const apiKey = 'AIzaSyAWcmpMCpb4kjicPtz9J8VjpcUH6fOYxs0';
 
-  // Ambil Data dari Sidebar
-  const namaLokasi = document.getElementById('res-nama').innerText;
-  const statusZona = document.getElementById('res-status').innerText;
-  const infoCuaca = document.getElementById('res-weather').innerText.replace(/\n/g, ' ');
+  if (!userText) return; // Jangan kirim kalau kosong
 
+  // 1. Tampilkan Pesan User di Layar
+  messageArea.innerHTML += `
+        <div class="message user-msg">${userText}</div>
+    `;
+  inputField.value = ''; // Kosongkan input
+  messageArea.scrollTop = messageArea.scrollHeight; // Auto scroll ke bawah
+
+  // 2. Tampilkan Indikator "Sedang mengetik..."
+  const loadingId = 'loading-' + Date.now();
+  messageArea.innerHTML += `
+        <div id="${loadingId}" class="message bot-msg" style="color:#888; font-style:italic;">
+            ⏳ Sedang mengetik...
+        </div>
+    `;
+  messageArea.scrollTop = messageArea.scrollHeight;
+
+  // 3. Susun Prompt Khusus Bencana
   const prompt = `
-        Bertindaklah sebagai Ahli Mitigasi Bencana.
-        Analisis kondisi berikut untuk memberikan saran keselamatan singkat (maksimal 3 poin).
+        Kamu adalah Asisten Cerdas untuk BPBD (Badan Penanggulangan Bencana Daerah) Kabupaten Sukabumi.
+        Tugasmu adalah menjawab pertanyaan warga terkait bencana banjir, tanah longsor, dan gempa bumi.
         
-        Data Lokasi:
-        - Kecamatan: ${namaLokasi}, Kabupaten Sukabumi
-        - Status Zona: ${statusZona}
-        - Kondisi Cuaca Saat Ini: ${infoCuaca}
+        Konteks:
+        - Jawab dengan singkat, padat, dan jelas (maksimal 3 paragraf pendek).
+        - Gunakan bahasa Indonesia yang sopan dan menenangkan.
+        - Jika pertanyaan darurat, sarankan untuk menghubungi nomor darurat (112 atau BPBD Sukabumi).
+        - Jangan menjawab hal di luar topik bencana/keselamatan (misal: jangan jawab soal matematika atau coding).
         
-        Berikan jawaban dengan format HTML (gunakan tag <b> untuk penekanan):
-        ⚠️ <b>Analisis Risiko:</b> [Jelaskan singkat risiko]
-        <br><br>
-        🛡️ <b>Saran Tindakan:</b>
-        1. [Saran 1]
-        2. [Saran 2]
-        3. [Saran 3]
-        
-        Gunakan bahasa Indonesia yang tegas namun menenangkan.
+        Pertanyaan User: "${userText}"
     `;
 
   try {
-    // [UPDATE PENTING] Menggunakan model 'gemini-pro' (Tanpa Versi Angka)
-    // Ini adalah URL paling stabil yang jarang error 404
+    // Gunakan endpoint gemini-pro yang stabil
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
 
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-      }),
+      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
     });
-
-    // Cek jika ada error HTTP
-    if (!response.ok) {
-      const errorData = await response.json();
-      const errorMessage = errorData.error?.message || `HTTP Status: ${response.status}`;
-      throw new Error(errorMessage);
-    }
 
     const data = await response.json();
 
-    // Validasi apakah AI memberikan jawaban
-    if (!data.candidates || data.candidates.length === 0) {
-      throw new Error('AI tidak memberikan respon (Kandidat kosong).');
-    }
+    if (!data.candidates || data.candidates.length === 0) throw new Error('No response');
 
-    const aiReply = data.candidates[0].content.parts[0].text;
+    // Ambil teks jawaban dan format (Bold & Enter)
+    const botReply = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>').replace(/\n/g, '<br>');
 
-    // Format Teks
-    const formattedReply = aiReply
-      .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // Bold markdown ke HTML
-      .replace(/\n/g, '<br>'); // Enter ke HTML
-
-    loadingText.style.display = 'none';
-    contentText.innerHTML = formattedReply;
-  } catch (error) {
-    console.error('Error AI:', error);
-    loadingText.style.display = 'none';
-
-    // Tampilkan pesan error detail
-    let pesanError = error.message;
-    if (pesanError.includes('not found')) {
-      pesanError = 'Model AI sedang maintenance/tidak ditemukan. Coba lagi nanti.';
-    }
-
-    contentText.innerHTML = `<span style='color:red; font-size:11px;'><b>Gagal Menghubungi AI.</b><br>${pesanError}</span>`;
-  } finally {
-    btnAi.disabled = false;
-    btnAi.innerText = '✨ Analisis Risiko Sekarang';
+    // Hapus loading, ganti dengan jawaban AI
+    document.getElementById(loadingId).remove();
+    messageArea.innerHTML += `
+            <div class="message bot-msg">${botReply}</div>
+        `;
+  } catch (err) {
+    // Jika Error
+    document.getElementById(loadingId).remove();
+    console.error(err);
+    messageArea.innerHTML += `
+            <div class="message bot-msg" style="color:red;">
+                Maaf, koneksi ke server AI terganggu. Coba lagi nanti.
+            </div>
+        `;
   }
-}
 
-document.getElementById('search-input').addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') searchLocation();
-});
+  // Auto scroll ke bawah lagi setelah dijawab
+  messageArea.scrollTop = messageArea.scrollHeight;
+}
 
 // ============================================================
 // 10. LAYER CONTROL

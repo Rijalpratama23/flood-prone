@@ -7,8 +7,8 @@
         "kecamatan": "Pelabuhan Ratu",
         "status": "Zona Merah (Rawan Tinggi)",
         "lokasi_spesifik": "Muara Citarik / Area Pantai",
-        "penyebab": "Banjir rob dan luapan drainase perkotaan",
-        "keterangan": "Rawan banjir rob tahunan",
+        "penyebab": "Banjir rob (air laut) & buruknya drainase perkotaan (sedimentasi).",
+        "keterangan": "Rawan banjir rob tahunan melanda pusat kota & pesawahan warga",
         "gambar": "assets/pelabuhanratu.jpg"
       },
       "geometry": {
@@ -97,8 +97,8 @@
         "kecamatan": "Cicurug",
         "status": "Zona Merah (Rawan Tinggi)",
         "lokasi_spesifik": "Desa Mekarsari / Area Sungai Cicatih",
-        "penyebab": "Banjir bandang dan luapan Sungai Cicatih",
-        "keterangan": "Sering terjadi banjir bandang, 589 rumah rusak (2024)",
+        "penyebab": "Banjir bandang dan luapan Sungai Cicatih, surah hujann ekstrem serta penyempitan drainase industri",
+        "keterangan": "Sering terjadi banjir bandang, 589 rumah rusak (2024) penggunaan lahan industri dan pemukiman",
         "gambar": "assets/cicurug.jpeg"
       },
       "geometry": {
@@ -121,7 +121,7 @@
         "coordinates": [106.8363, -7.3064]
       }
     },
-    
+
     {
       "type": "Feature",
       "properties": {
@@ -158,8 +158,8 @@
         "kecamatan": "Cibadak",
         "status": "Zona Kuning (Waspada)",
         "lokasi_spesifik": "Jalan Suryakencana / Kota",
-        "penyebab": "Banjir bandang dari aliran sungai dataran tinggi",
-        "keterangan": "Jalan nasional sering terendam",
+        "penyebab": "Aliran air permukaan (run-off) tinggi akibat kepadatan bangunan.",
+        "keterangan": "Jalan nasional sering terendam, pemukiman dan komersial",
         "gambar": "assets/cibadak.jpeg"
       },
       "geometry": {
@@ -203,7 +203,7 @@
         "kecamatan": "Purabaya",
         "status": "Zona Hijau (Relatif Aman)",
         "lokasi_spesifik": "Dataran Tinggi Purabaya",
-        "penyebab": "Kontur tanah perbukitan",
+        "penyebab": "Kontur tanah perbukitan lokasi di punggung bukit, air tidak menggenang.",
         "keterangan": "Aman dari banjir genangan, waspada longsor",
         "gambar": "assets/purabaya.jpeg"
       },
@@ -233,8 +233,8 @@
         "kecamatan": "Cireunghas",
         "status": "Zona Hijau (Relatif Aman)",
         "lokasi_spesifik": "Kaki Gunung",
-        "penyebab": "Kemiringan lereng",
-        "keterangan": "Waspada pergerakan tanah",
+        "penyebab": "Kemiringan lereng luapan saluran irigasi primer saat musim hujan.",
+        "keterangan": "Waspada pergerakan tanah melanda lahan pertanian dan pemukiman",
         "gambar": "assets/cirenghas.jpeg"
       },
       "geometry": {
@@ -278,8 +278,8 @@
         "kecamatan": "Caringin",
         "status": "Zona Hijau (Relatif Aman)",
         "lokasi_spesifik": "Kaki Gunung Pangrango",
-        "penyebab": "Dataran tinggi",
-        "keterangan": "Aman dari banjir genangan",
+        "penyebab": "Dataran tinggi dan kemiringan lahan membuat air terus mengalir ke arah Bogor/Sukabumi.",
+        "keterangan": "Aman dari banjir genangan wilayah pertanaian dan ladang",
         "gambar": "assets/caringin.jpeg"
       },
       "geometry": {
@@ -293,8 +293,8 @@
         "kecamatan": "Cicantayan",
         "status": "Zona Hijau (Relatif Aman)",
         "lokasi_spesifik": "Pusat Kecamatan",
-        "penyebab": "Kontur tanah bergelombang",
-        "keterangan": "Risiko rendah",
+        "penyebab": "Kontur tanah bergelombang dan peningkatan debit anak sungai secara tiba-tiba.",
+        "keterangan": "Risiko rendah sesekali banjir melanda pemukiman dan perkebunan",
         "gambar": "assets/cicantayan.jpeg"
       },
       "geometry": {
@@ -308,8 +308,8 @@
         "kecamatan": "Cidahu",
         "status": "Zona Hijau (Relatif Aman)",
         "lokasi_spesifik": "Kaki Gunung Salak",
-        "penyebab": "Dataran tinggi",
-        "keterangan": "Potensi banjir rendah",
+        "penyebab": "Dataran tinggi dan potensi banjir lintasan karena kemiringan lereng yang cukup curam.",
+        "keterangan": "Potensi banjir rendah industri dan hutan",
         "gambar": "assets/cidahu.jpeg"
       },
       "geometry": {
@@ -323,8 +323,8 @@
         "kecamatan": "Cikidang",
         "status": "Zona Kuning (Waspada)",
         "lokasi_spesifik": "Perkebunan Sawit",
-        "penyebab": "Alih fungsi lahan",
-        "keterangan": "Waspada longsor dan banjir lintasan",
+        "penyebab": "Alih fungsi lahan dominasi lahan terbuka hijau (perkebunan sawit/karet) yang luas.",
+        "keterangan": "Waspada longsor dan banjir lintasan daerah perkebunan dan hutan",
         "gambar": "assets/cikidang.jpeg"
       },
       "geometry": {
@@ -353,8 +353,8 @@
         "kecamatan": "Gunungguruh",
         "status": "Zona Hijau (Relatif Aman)",
         "lokasi_spesifik": "Area Perbukitan",
-        "penyebab": "Topografi tinggi",
-        "keterangan": "Risiko banjir rendah",
+        "penyebab": "Topografi tinggi dan Perubahan kontur lahan akibat tambang mempengaruhi aliran air.",
+        "keterangan": "Risiko banjir rendah melanda tambang dan perkebunan",
         "gambar": "assets/gunungguruh.jpeg"
       },
       "geometry": {
@@ -368,7 +368,7 @@
         "kecamatan": "Kebonpedes",
         "status": "Zona Hijau (Relatif Aman)",
         "lokasi_spesifik": "Area Pertanian",
-        "penyebab": "Sistem irigasi baik",
+        "penyebab": "Sistem irigasi baik tapi sesekali luapan air selokan pemukiman saat intensitas hujan tinggi.",
         "keterangan": "Aman dari banjir besar",
         "gambar": "assets/kebonpedes.jpeg"
       },
@@ -383,8 +383,8 @@
         "kecamatan": "Nagrak",
         "status": "Zona Hijau (Relatif Aman)",
         "lokasi_spesifik": "Lereng Gunung",
-        "penyebab": "Kemiringan tanah",
-        "keterangan": "Waspada longsor",
+        "penyebab": "Kemiringan tanah dan debit air meningkat cepat dari arah lereng atas (hulu).",
+        "keterangan": "Waspada longsor melanda kebun dan pemukiman warga",
         "gambar": "assets/nagrak.jpeg"
       },
       "geometry": {
@@ -398,8 +398,8 @@
         "kecamatan": "Parungkuda",
         "status": "Zona Kuning (Waspada)",
         "lokasi_spesifik": "Jalan Nasional",
-        "penyebab": "Drainase jalan raya",
-        "keterangan": "Genangan mengganggu lalu lintas",
+        "penyebab": "Drainase jalan raya dan Alih fungsi lahan menjadi pabrik meningkatkan limpasan air permukaan.",
+        "keterangan": "Genangan mengganggu lalu lintas perkebunn dan hutan",
         "gambar": "assets/parungkuda.jpeg"
       },
       "geometry": {
@@ -413,8 +413,8 @@
         "kecamatan": "Sukabumi",
         "status": "Zona Hijau (Relatif Aman)",
         "lokasi_spesifik": "Wilayah Penyangga Kota",
-        "penyebab": "Topografi beragam",
-        "keterangan": "Relatif aman",
+        "penyebab": "Topografi beragam dan lokasi di dataran tinggi kaki gunung Gede.",
+        "keterangan": "Relatif aman wilayah pemukiman dan perkebunan",
         "gambar": "assets/sukabumi.jpeg"
       },
       "geometry": {
@@ -428,8 +428,8 @@
         "kecamatan": "Cibitung",
         "status": "Zona Hijau (Relatif Aman)",
         "lokasi_spesifik": "Wilayah Selatan",
-        "penyebab": "Jauh dari sungai besar",
-        "keterangan": "Risiko banjir rendah",
+        "penyebab": "Jauh dari sungai besar dan Luapan periodik sungai Cikaso di area persawahan.",
+        "keterangan": "Risiko banjir rendah melanda sawah dan kebun warga",
         "gambar": "assets/cibitung.jpeg"
       },
       "geometry": {
@@ -443,8 +443,8 @@
         "kecamatan": "Cidadap",
         "status": "Zona Hijau (Relatif Aman)",
         "lokasi_spesifik": "Perbukitan Selatan",
-        "penyebab": "Dataran tinggi",
-        "keterangan": "Aman dari banjir",
+        "penyebab": "Dataran tinggi kepadatan penduduk rendah dan resapan air alami masih terjaga.",
+        "keterangan": "Aman dari banjir daerah perkebunan dan hutan",
         "gambar": "assets/cidadap.jpeg"
       },
       "geometry": {
@@ -458,8 +458,8 @@
         "kecamatan": "Cimanggu",
         "status": "Zona Hijau (Relatif Aman)",
         "lokasi_spesifik": "Area Kehutanan",
-        "penyebab": "Resapan air tinggi",
-        "keterangan": "Risiko rendah",
+        "penyebab": "Resapan air tinggi elevasi moderat dengan sistem drainase alami (lembah) yang baik.",
+        "keterangan": "Risiko rendah daerah perkebunan",
         "gambar": "assets/cimanggu.jpeg"
       },
       "geometry": {
@@ -473,7 +473,7 @@
         "kecamatan": "Kalibunder",
         "status": "Zona Kuning (Waspada)",
         "lokasi_spesifik": "Bantaran Sungai",
-        "penyebab": "Luapan sungai",
+        "penyebab": "Luapan sungai ",
         "keterangan": "Waspada saat hujan deras",
         "gambar": "assets/kalibunder.jpg"
       },
@@ -488,7 +488,7 @@
         "kecamatan": "Waluran",
         "status": "Zona Kuning (Waspada)",
         "lokasi_spesifik": "Cekungan",
-        "penyebab": "Drainase alam",
+        "penyebab": "Drainase alam ",
         "keterangan": "Genangan lokal",
         "gambar": "assets/waluran.jpeg"
       },
@@ -500,11 +500,11 @@
     {
       "type": "Feature",
       "properties": {
-        "kecamatan": "Jampangkulon",
+        "kecamatan": "Jampang kulon",
         "status": "Zona Kuning (Waspada)",
         "lokasi_spesifik": "Perkotaan",
-        "penyebab": "Drainase kota",
-        "keterangan": "Genangan jalan",
+        "penyebab": "Genangan pada jalan utama saat hujan dengan durasi >3 jam.",
+        "keterangan": "Genangan jalan, pemukiman dan sawah",
         "gambar": "assets/jampangkulon.jpeg"
       },
       "geometry": {
@@ -518,8 +518,8 @@
         "kecamatan": "Surade",
         "status": "Zona Hijau (Relatif Aman)",
         "lokasi_spesifik": "Dataran Pantai",
-        "penyebab": "Topografi datar",
-        "keterangan": "Risiko banjir rendah",
+        "penyebab": "Topografi datar dan Kondisi tanah yang lambat menyerap air (kejenuhan tinggi).",
+        "keterangan": "Risiko banjir rendah sawah dan pesisir",
         "gambar": "assets/surade.jpeg"
       },
       "geometry": {
@@ -533,8 +533,8 @@
         "kecamatan": "Ciracap",
         "status": "Zona Kuning (Waspada)",
         "lokasi_spesifik": "Pesisir",
-        "penyebab": "Muara sungai",
-        "keterangan": "Waspada pasang air laut",
+        "penyebab": "Dataran rendah pesisir selatan yang minim resapan buatan.",
+        "keterangan": "Waspada pasang air laut melanda sawah dan peisir",
         "gambar": "assets/ciracap.jpeg"
       },
       "geometry": {
@@ -563,8 +563,8 @@
         "kecamatan": "Nyalindung",
         "status": "Zona Hijau (Relatif Aman)",
         "lokasi_spesifik": "Perbukitan",
-        "penyebab": "Tanah labil",
-        "keterangan": "Rawan longsor",
+        "penyebab": "Tanah labil dan dataran tinggi, risiko utama bukan banjir tapi pergerakan tanah.",
+        "keterangan": "Rawan longsor di hutan dan di kebun",
         "gambar": "assets/nyalindung.jpeg"
       },
       "geometry": {
@@ -593,8 +593,8 @@
         "kecamatan": "Jampang Tengah",
         "status": "Zona Hijau (Rawan Longsor)",
         "lokasi_spesifik": "Pusat Kecamatan Jampang tengah",
-        "penyebab": "Lebih rawan pergerakan tanah",
-        "keterangan": "Daerah dataran tinggi",
+        "penyebab": "Lebih rawan pergerakan tanah karakteristik tanah kapur yang memiliki infiltrasi cukup baik.",
+        "keterangan": "Daerah dataran tinggi xaerah perkebunan dan tambang",
         "gambar": "assets/jampangtengah.jpeg"
       },
       "geometry": {
@@ -608,8 +608,8 @@
         "kecamatan": "Kabandungan",
         "status": "Zona Hijau (Rawan Longsor)",
         "lokasi_spesifik": "Hulu Sungai",
-        "penyebab": "Wilayah hulu dengan arus deras",
-        "keterangan": "Risiko lebih ke longsor dibanding banjir genangan",
+        "penyebab": "Wilayah hulu dengan arus deras serta Berada di zona hulu/puncak (Gunung Halimun Salak).",
+        "keterangan": "Risiko lebih ke longsor dibanding banjir genangan daerah hutan dan perkebunan",
         "gambar": "assets/kabandungan.jpeg"
       },
       "geometry": {
@@ -638,8 +638,8 @@
         "kecamatan": "Kabandungan",
         "status": "Zona Hijau (Rawan Longsor)",
         "lokasi_spesifik": "Hulu Sungai",
-        "penyebab": "Wilayah hulu dengan arus deras",
-        "keterangan": "Risiko lebih ke longsor dibanding banjir genangan",
+        "penyebab": "Wilayah hulu dengan arus deras berada di zona hulu/puncak (Gunung Halimun Salak).",
+        "keterangan": "Risiko lebih ke longsor dibanding banjir genangan daerah hutan dan perkebunan",
         "gambar": "assets/kabandungan.jpeg"
       },
       "geometry": {
@@ -716,8 +716,8 @@
             "kecamatan": "Curugkembar",
             "status": "Zona Kuning (Waspada)",
             "lokasi_spesifik": "Area Perbukitan Curugkembar",
-            "penyebab": "Hujan deras durasi lama",
-            "keterangan": "Waspada longsor ringan dan banjir lintasan",
+            "penyebab": "Hujan deras durasi lama kondisi geomorfologi yang tidak membentuk cekungan banjir.",
+            "keterangan": "Waspada longsor ringan dan banjir lintasan daerah perkebunan",
             "gambar": "assets/curugkemar.jpeg"
           },
           "geometry": {
@@ -731,7 +731,7 @@
             "kecamatan": "Gegerbitung",
             "status": "Zona Kuning (Waspada)",
             "lokasi_spesifik": "Kaki Bukit Gegerbitung",
-            "penyebab": "Risiko campuran banjir dan longsor",
+            "penyebab": "Risiko campuran banjir dan longsor Topografi tinggi memudahkan air langsung mengalir ke hilir.",
             "keterangan": "Perlu kewaspadaan ganda (banjir & tanah gerak)",
             "gambar": "assets/gegerbitung.webp"
           },
@@ -746,8 +746,8 @@
             "kecamatan": "Sukalarang",
             "status": "Zona Kuning (Waspada)",
             "lokasi_spesifik": "Jalan Protokol Sukalarang",
-            "penyebab": "Banjir limpasan drainase jalan",
-            "keterangan": "Jalur lalu lintas utama Sukabumi-Cianjur",
+            "penyebab": "Banjir limpasan drainase jalan dan berada di area puncak perbatasan Cianjur.",
+            "keterangan": "Jalur lalu lintas utama Sukabumi-Cianjur wilayah pemikiman dan industri",
             "gambar": "assets/sukalarang.jpeg"
           },
           "geometry": {
@@ -761,8 +761,8 @@
             "kecamatan": "Kadudampit",
             "status": "Zona Kuning (Waspada)",
             "lokasi_spesifik": "Kawasan Wisata Situ Gunung",
-            "penyebab": "Limpasan air dari kaki gunung",
-            "keterangan": "Debit air meningkat cepat saat hujan di gunung",
+            "penyebab": "Limpasan air dari kaki gunung wilayah hulu, air hanya melintas menuju wilayah bawah.",
+            "keterangan": "Debit air meningkat cepat saat hujan di gunung daerah perkebunan",
             "gambar": "assets/kadudampit.jpeg"
           },
           "geometry": {
@@ -776,8 +776,8 @@
             "kecamatan": "Ciambar",
             "status": "Zona Kuning (Waspada)",
             "lokasi_spesifik": "Pemukiman Lereng Ciambar",
-            "penyebab": "Drainase buruk dan curah hujan tinggi",
-            "keterangan": "Genangan air di area pemukiman padat",
+            "penyebab": "Drainase buruk dan curah hujan tinggi dan Masih didominasi tutupan lahan hutan lindung.",
+            "keterangan": "Genangan air di area pemukiman padat daerah hutan dan kebun",
             "gambar": "assets/ciambar.jpeg"
           },
           "geometry": {
@@ -791,8 +791,8 @@
             "kecamatan": "Bojonggenteng",
             "status": "Zona Kuning (Waspada)",
             "lokasi_spesifik": "Area Persawahan Bojonggenteng",
-            "penyebab": "Luapan irigasi teknis",
-            "keterangan": "Berdampak pada lahan pertanian",
+            "penyebab": "Luapan irigasi teknis Kapasitas selokan di area padat penduduk yang terbatas.",
+            "keterangan": "Berdampak pada lahan pertanian serta pemukiman warga",
             "gambar": "assets/bojonggenteng.jpeg"
           },
           "geometry": {
@@ -806,8 +806,8 @@
             "kecamatan": "Parakansalak",
             "status": "Zona Kuning (Waspada)",
             "lokasi_spesifik": "Perkebunan Teh Parakansalak",
-            "penyebab": "Aliran permukaan deras",
-            "keterangan": "Waspada erosi dan luapan selokan",
+            "penyebab": "Aliran permukaan deras serta curah hujan sangat tinggi, waspada banjir lumpur.",
+            "keterangan": "Waspada erosi dan luapan selokan melanda kebun dan pemikiman",
             "gambar": "assets/parakansalak.jpeg"
           },
           "geometry": {
@@ -821,8 +821,8 @@
             "kecamatan": "Kalapanunggal",
             "status": "Zona Kuning (Waspada)",
             "lokasi_spesifik": "Pusat Kecamatan Kalapanunggal",
-            "penyebab": "Intensitas hujan tinggi di hulu",
-            "keterangan": "Genangan sesaat di jalan poros kecamatan",
+            "penyebab": "Intensitas hujan tinggi di hulu dan  aliran air deras dari pegunungan saat musim hujan.",
+            "keterangan": "Genangan sesaat di jalan poros kecamatan melanda kebun dan pemukiman",
             "gambar": "assets/kalapanuggal.jpeg"
           },
           "geometry": {
@@ -853,8 +853,8 @@
         "kecamatan": "Cisolok",
         "status": "Zona Merah (Sangat Rawan)",
         "lokasi_spesifik": "Bantaran Sungai Lokal Cisolok",
-        "penyebab": "Rawan banjir bandang dari hulu sungai",
-        "keterangan": "Perbatasan Banten, kontur curam",
+        "penyebab": "Rawan banjir bandang dari hulu sungai dan potensi banjir bandang dari lereng bukit ke arah pemukiman pantai.",
+        "keterangan": "Perbatasan Banten, kontur curam serta pesisir dan hutan",
         "gambar": "assets/cisolok.jpeg"
       },
       "geometry": {
@@ -868,8 +868,8 @@
         "kecamatan": "Cikakak",
         "status": "Zona Merah (Sangat Rawan)",
         "lokasi_spesifik": "Pemukiman Lembah Cikakak",
-        "penyebab": "Potensi banjir bandang dan longsor",
-        "keterangan": "Wilayah dengan riwayat bencana campuran",
+        "penyebab": "Potensi banjir bandang dan longsor, Kombinasi banjir rob dan luapan anak sungai di area rendah.",
+        "keterangan": "Wilayah dengan riwayat bencana campuran melanda pesisir dan",
         "gambar": "assets/cikakak.jpg"
       },
       "geometry": {
@@ -883,8 +883,8 @@
         "kecamatan": "Simpenan",
         "status": "Zona Merah (Sangat Rawan)",
         "lokasi_spesifik": "Muara Sungai Cimandiri",
-        "penyebab": "Pertemuan arus sungai besar dan pasang laut",
-        "keterangan": "Area muara sangat rawan saat hujan hulu tinggi",
+        "penyebab": "Pertemuan arus sungai besar dan pasang laut dan Lokasi hilir sungai Cimandiri yang sering meluap saat hujan merata.",
+        "keterangan": "Area muara sangat rawan saat hujan hulu tinggi sering melanda kebun warga  ",
         "gambar": "assets/simpenan.jpeg"
       },
       "geometry": {
@@ -913,8 +913,8 @@
         "kecamatan": "Ciemas",
         "status": "Zona Merah (Sangat Rawan)",
         "lokasi_spesifik": "Desa Tamanjaya / Kawasan Geopark",
-        "penyebab": "Banjir rendaman akibat drainase alam terhambat",
-        "keterangan": "Banjir sering merendam sawah dan jalan",
+        "penyebab": "Banjir rendaman akibat drainase alam terhambat dan Topografi cekungan (dataran rendah) & pertemuan muara sungai.",
+        "keterangan": "Banjir sering merendam sawah dan jalan serta pesisir",
         "gambar": "assets/ciemas.jpeg"
       },
       "geometry": {
@@ -943,8 +943,8 @@
         "kecamatan": "Cidolog",
         "status": "Zona Merah (Sangat Rawan)",
         "lokasi_spesifik": "Jalan Utama Cidolog",
-        "penyebab": "Banjir rendaman (cekungan)",
-        "keterangan": "Sering memutus akses jalan provinsi",
+        "penyebab": "Luapan sungai tahunan & kapasitas drainase alami yang rendah.",
+        "keterangan": "Sering memutus akses jalan provinsi serta pesawahan dan pemukiman warga",
         "gambar": "assets/cidolog.jpeg"
       },
       "geometry": {
@@ -958,8 +958,8 @@
         "kecamatan": "Sukaraja",
         "status": "Zona Merah (Sangat Rawan)",
         "lokasi_spesifik": "Perumahan/Pemukiman Sukaraja",
-        "penyebab": "Banjir limpasan drainase dan sungai kecil",
-        "keterangan": "Urban flooding (banjir perkotaan)",
+        "penyebab": "Banjir limpasan drainase dan sungai kecil serta gangguan irigasi pertanian yang meluap ke pemukiman warga.",
+        "keterangan": "Urban flooding (banjir perkotaan) sering melanda sawah dan pemukiman",
         "gambar": "assets/sukaraja.jpg"
       },
       "geometry": {
@@ -973,8 +973,8 @@
         "kecamatan": "Warungkiara",
         "status": "Zona Merah (Sangat Rawan)",
         "lokasi_spesifik": "Desa Ubrug",
-        "penyebab": "Luapan Sungai Cimandiri",
-        "keterangan": "Arus sungai deras dan volume besar",
+        "penyebab": "Luapan Sungai Cimandiri serta Luapan sungai Cimandiri & erosi sempadan sungai.",
+        "keterangan": "Arus sungai deras dan volume besar melanda kebun warga",
         "gambar": "assets/warungkiara.jpg"
       },
       "geometry": {
@@ -988,8 +988,8 @@
         "kecamatan": "Pabuaran",
         "status": "Zona Merah (Sangat Rawan)",
         "lokasi_spesifik": "Wilayah Hilir Pabuaran",
-        "penyebab": "Pertemuan arus sungai",
-        "keterangan": "Rawan banjir kiriman",
+        "penyebab": "Pertemuan arus sungai jauh dari aliran sungai besar yang berpotensi meluap parah.",
+        "keterangan": "Rawan banjir kiriman perkebunan dan hutan",
         "gambar": "assets/pabuaran.jpeg"
       },
       "geometry": {

@@ -108,6 +108,154 @@ path.leaflet-interactive:focus {
   outline: none;
 }
 
+/* Chatbot AI Floating */
+.chatbot-container {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  z-index: 9999; /* Pastikan di atas peta dan layer control */
+  font-family: Arial, sans-serif;
+}
+
+/* Tombol Bulat (Toggle) */
+.chatbot-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #077596;
+  border: none;
+  font-size: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatbot-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Jendela Chat */
+.chatbot-box {
+  position: absolute;
+  bottom: 80px; /* Di atas tombol bulat */
+  right: 0;
+  width: 320px;
+  height: 450px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+  border: 1px solid #ddd;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Biru */
+.chat-header {
+  background: #2980b9;
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.close-chat-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Area Pesan (Scrollable) */
+.chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #f4f6f7;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Bubble Chat */
+.message {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.bot-msg {
+  background: white;
+  color: #333;
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.user-msg {
+  background: #3498db;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Area Input Bawah */
+.chat-input-area {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  background: white;
+  display: flex;
+  gap: 8px;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  font-size: 13px;
+}
+
+.chat-input-area button {
+  background: #2980b9;
+  color: white;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.chat-input-area button:hover {
+  background: #1abc9c;
+}
+
 /* Keyframes untuk efek berdenyut */
 @keyframes pulse-animation {
   0% {
@@ -403,5 +551,10 @@ path.leaflet-interactive:focus {
   /* Perkecil Gambar di Mobile agar hemat tempat */
   .result-image-box {
     height: 100px;
+  }
+  .chatbot-box {
+    width: 85vw; /* Lebar hampir penuh */
+    right: -10px;
+    height: 60vh; /* Tinggi 60% layar */
   }
 }
