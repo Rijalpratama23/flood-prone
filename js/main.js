@@ -338,9 +338,9 @@ async function sendChatMessage() {
   const prompt = `Jawab pertanyaan ini singkat saja (Bahasa Indonesia): "${userText}"`;
 
   try {
-    // [PERBAIKAN UTAMA DI SINI]
     // Kita gunakan model 'gemini-pro' (versi 1.0) yang pasti jalan
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
+    // Kita gunakan versi 'v1' (bukan beta) dan model 'gemini-1.5-flash' (standar baru)
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
     const response = await fetch(url, {
       method: 'POST',
