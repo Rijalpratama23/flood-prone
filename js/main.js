@@ -320,51 +320,37 @@ async function sendChatMessage() {
   const messageArea = document.getElementById('chat-messages');
   const userText = inputField.value.trim();
 
-  // Pastikan API Key ini benar. (Gunakan yang lama jika yang baru ini error)
-  const apiKey = 'AIzaSyAWcmpMCpb4kjicPtz9J8VjpcUH6fOYxs0';
-
   if (!userText) return;
 
-  // 1. Tampilkan Pesan User
+  // tampilkan pesan user
   messageArea.innerHTML += `<div class="message user-msg">${userText}</div>`;
   inputField.value = '';
-  messageArea.scrollTop = messageArea.scrollHeight;
 
-  // 2. Tampilkan Loading
+  // loading
   const loadingId = 'loading-' + Date.now();
-  messageArea.innerHTML += `<div id="${loadingId}" class="message bot-msg" style="color:#888;">⏳ Sedang mengetik...</div>`;
+  messageArea.innerHTML += `<div id="${loadingId}" class="message bot-msg">⏳ Mengetik...</div>`;
   messageArea.scrollTop = messageArea.scrollHeight;
-
-  const prompt = `Jawab pertanyaan ini singkat saja (Bahasa Indonesia): "${userText}"`;
 
   try {
-    // Kita gunakan model 'gemini-pro' (versi 1.0) yang pasti jalan
-    // Kita gunakan versi 'v1' (bukan beta) dan model 'gemini-1.5-flash' (standar baru)
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-
-    const response = await fetch(url, {
+    const response = await fetch('http://localhost:3000/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
+      body: JSON.stringify({
+        message: userText,
+      }),
     });
 
-    if (!response.ok) {
-      const err = await response.json();
-      // Menampilkan pesan error spesifik jika gagal
-      throw new Error(err.error?.message || response.statusText);
-    }
     const data = await response.json();
-
-    if (!data.candidates || data.candidates.length === 0) throw new Error('AI tidak merespon');
-
-    const botReply = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>').replace(/\n/g, '<br>');
-
     document.getElementById(loadingId).remove();
-    messageArea.innerHTML += `<div class="message bot-msg">${botReply}</div>`;
+
+    if (data.reply) {
+      messageArea.innerHTML += `<div class="message bot-msg">${data.reply.replace(/\n/g, '<br>')}</div>`;
+    } else {
+      throw new Error('AI tidak merespon');
+    }
   } catch (err) {
     document.getElementById(loadingId).remove();
-    console.error('ERROR CHATBOT:', err);
-    messageArea.innerHTML += `<div class="message bot-msg" style="color:red; font-size:12px;">Error: ${err.message}</div>`;
+    messageArea.innerHTML += `<div class="message bot-msg" style="color:red">❌ ${err.message}</div>`;
   }
 
   messageArea.scrollTop = messageArea.scrollHeight;

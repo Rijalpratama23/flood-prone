@@ -1,20 +1,16 @@
 {
-  "name": "sitarub-project",
+  "name": "project-gis-pemetaan-rawan-banjir",
   "version": "1.0.0",
-  "description": "Sistem Tata Ruang & Rawan Banjir Cisolok",
-  "main": "index.html",
+  "type": "module",
   "scripts": {
-    "start": "http-server -o -c-1"
+    "start": "node server.js"
   },
-  "keywords": [
-    "gis",
-    "leaflet",
-    "banjir",
-    "sitarub"
-  ],
-  "author": "Kelompok Kamu",
-  "license": "ISC",
-  "devDependencies": {
-    "http-server": "^14.1.1"
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.22.1",
+    "groq-sdk": "^0.37.0",
+    "node-fetch": "^3.3.2"
   }
 }

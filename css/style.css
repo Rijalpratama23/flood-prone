@@ -445,6 +445,29 @@ path.leaflet-interactive:focus {
     gap: 5px; /* Jarak antara logo dan teks */
   }
 
+  .chatbot-container {
+    bottom: 110px !important; /* Naikkan posisinya (Layer control ada di 30px) */
+    right: 20px !important;
+    z-index: 3000 !important; /* Pastikan di atas elemen peta */
+  }
+
+  /* 2. Sesuaikan Ukuran Tombol Chat di HP */
+  .chatbot-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 24px; /* Perkecil ikon */
+  }
+
+  /* 3. Atur Jendela Chat agar Pas di Layar HP */
+  .chatbot-box {
+    position: absolute;
+    bottom: 60px; /* Jarak dari tombol chat */
+    right: 0;
+    width: 80vw; /* Lebar 80% dari layar HP */
+    height: 50vh; /* Tinggi 50% dari layar HP */
+    border-radius: 10px;
+  }
+
   /* Perkecil ukuran logo di dalam judul */
   .logo img {
     width: 40px !important; /* Paksa ukuran logo lebih kecil */
